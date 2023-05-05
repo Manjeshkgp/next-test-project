@@ -13,7 +13,7 @@ const Container: FC<ContainerProps> = ({ children }) => {
   return (
     <div className="container">
       <Header setAuthPopup={setAuthPopup} />
-      <div className="pt-16"></div>
+      <div className="pt-12"></div>
       {children}
       {authPopup ? <Authorize setAuthPopup={setAuthPopup} /> : null}
     </div>
