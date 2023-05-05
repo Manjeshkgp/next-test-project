@@ -12,7 +12,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ isAuthorized, setAuthPopup }) => {
   return (
-    <div className="fixed w-full h-12 bg-white flex justify-around items-center border-b">
+    <div className="fixed z-40 w-full h-12 bg-white flex justify-around items-center border-b">
       <Link href="/">
         <Image src={logo} alt="logo" className="w-28" />
       </Link>
