@@ -8,9 +8,11 @@ import googleImg from "../assets/search.png";
 import pcAuthBanner from "../assets/pcAuthBanner.png";
 import Image from "next/image";
 
-interface AuthorizeProps {}
+interface AuthorizeProps {
+  setAuthPopup:Function
+}
 
-const Authorize: FC<AuthorizeProps> = () => {
+const Authorize: FC<AuthorizeProps> = ({setAuthPopup}) => {
   const [hidePass, setHidePass] = useState<boolean>(false);
   const [login, setLogin] = useState<boolean>(false);
 
@@ -31,7 +33,7 @@ const Authorize: FC<AuthorizeProps> = () => {
             <p className="font-bold text-[35px] leading-[45px] lg:text-[40px] lg:leading-[52px]">
               {login ? "Welcome Back!" : "Create Account"}
             </p>
-            <MdCancel className="text-[#212529] cursor-pointer w-[35px] h-[35px] lg:absolute lg:-right-6 lg:w-8 lg:h-8 lg:-top-10 lg:text-white" />
+            <MdCancel onClick={()=>{setAuthPopup((prev:boolean)=>(!prev))}} className="text-[#212529] cursor-pointer w-[35px] h-[35px] lg:absolute lg:-right-6 lg:w-8 lg:h-8 lg:-top-10 lg:text-white" />
           </div>
           <div className="flex items-center mt-4 justify-center w-full">
             <input

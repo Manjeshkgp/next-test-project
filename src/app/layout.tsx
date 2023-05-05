@@ -1,3 +1,4 @@
+import Container from "./components/Container";
 import "./globals.css";
 
 export const metadata = {
@@ -12,7 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="overflow-hidden">{children}</body>
+      <body className="overflow-hidden">
+        <Container>
+        {children}
+        </Container>
+        </body>
     </html>
   );
 }
