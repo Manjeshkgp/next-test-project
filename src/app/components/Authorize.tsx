@@ -9,15 +9,16 @@ import pcAuthBanner from "../assets/pcAuthBanner.png";
 import Image from "next/image";
 
 interface AuthorizeProps {
-  setAuthPopup:Function
+  setAuthPopup:Function,
+  setIsAuthorized:Function
 }
 
-const Authorize: FC<AuthorizeProps> = ({setAuthPopup}) => {
+const Authorize: FC<AuthorizeProps> = ({setAuthPopup,setIsAuthorized}) => {
   const [hidePass, setHidePass] = useState<boolean>(false);
   const [login, setLogin] = useState<boolean>(false);
 
   return (
-    <div className="fixed z-30 bg-[rgba(0,0,0,0.6)] inset-0 flex justify-center items-end lg:items-center transition-all duration-300">
+    <div className="fixed z-40 bg-[rgba(0,0,0,0.6)] inset-0 flex justify-center items-end lg:items-center transition-all duration-300">
       <div className="relative transition-all lg:pt-10 duration-500 lg:scale-90 2xl:scale-100 bg-white p-3 lg:p-4 w-full max-w-[750px] flex flex-col justify-items-start lg:flex-row items-center lg:items-start rounded-t-lg lg:rounded-lg text-black">
         <p className="w-full text-[#008A45] bg-[#EFFFF4] rounded-lg px-6 p-2 hidden absolute top-0 left-0 right-0 lg:block text-center">
           Let&apos;s learn, share & inspire each other with our passion for
@@ -26,6 +27,8 @@ const Authorize: FC<AuthorizeProps> = ({setAuthPopup}) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setIsAuthorized(true);
+            setAuthPopup(false);
           }}
           className="flex flex-col w-full lg:w-[calc(100%-300px)] items-center"
         >

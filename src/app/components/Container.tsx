@@ -10,12 +10,13 @@ interface ContainerProps {
 
 const Container: FC<ContainerProps> = ({ children }) => {
   const [authPopup, setAuthPopup] = useState<boolean>(false);
+  const [isAuthorized,setIsAuthorized] = useState<boolean>(false);
   return (
     <div className="container">
-      <Header setAuthPopup={setAuthPopup} />
+      <Header isAuthorized={isAuthorized} setAuthPopup={setAuthPopup} />
       <div className="pt-12"></div>
       {children}
-      {authPopup ? <Authorize setAuthPopup={setAuthPopup} /> : null}
+      {authPopup ? <Authorize setIsAuthorized={setIsAuthorized} setAuthPopup={setAuthPopup} /> : null}
     </div>
   );
 };

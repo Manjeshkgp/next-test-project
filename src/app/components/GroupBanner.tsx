@@ -3,9 +3,12 @@ import { FC } from "react";
 import groupBannerImg from "../assets/Rectangle 2.png";
 import {BiArrowBack} from "react-icons/bi";
 
-interface GroupBannerProps {}
+interface GroupBannerProps {
+  groupJoin:boolean
+  setGroupJoin:Function
+}
 
-const GroupBanner: FC<GroupBannerProps> = ({}) => {
+const GroupBanner: FC<GroupBannerProps> = ({groupJoin,setGroupJoin}) => {
   return (
     <section className="w-full relative h-max">
       <Image
@@ -16,7 +19,7 @@ const GroupBanner: FC<GroupBannerProps> = ({}) => {
       <div className="absolute w-full bg-[rgba(0,0,0,0.5)] inset-0 flex flex-col justify-between lg:justify-end items-center">
         <div className="flex mt-2 lg:hidden justify-between items-center w-[96%]">
             <BiArrowBack className="h-8 w-8 text-white"/>
-            <button className="text-lg text-white font-semibold p-2 rounded-md border-white border-2">Join Group</button>
+            <button onClick={()=>setGroupJoin((prev:boolean)=>(!prev))} className="text-lg text-white font-semibold p-2 rounded-md border-white border-2">{groupJoin?"Joined":"Join Group"}</button>
         </div>
         <div className="flex flex-col text-white mb-4 lg:mb-8 w-[96%] max-w-7xl justify-start items-start">
             <p className="text-xl font-bold lg:text-3xl">Computer Engineering</p>
