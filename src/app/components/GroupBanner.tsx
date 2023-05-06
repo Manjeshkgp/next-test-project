@@ -10,7 +10,7 @@ const GroupBanner: FC<GroupBannerProps> = ({}) => {
     <section className="w-full relative h-max">
       <Image
         src={groupBannerImg}
-        className="min-w-[100vw] object-cover lg:max-h-[70vh] fill-neutral-700 object-center"
+        className="min-w-[100vw] object-cover max-h-[70vh] fill-neutral-700 object-center"
         alt="Group Banner"
       />
       <div className="absolute w-full bg-[rgba(0,0,0,0.5)] inset-0 flex flex-col justify-between lg:justify-end items-center">
