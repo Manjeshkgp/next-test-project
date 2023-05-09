@@ -6,9 +6,11 @@ import {BiArrowBack} from "react-icons/bi";
 interface GroupBannerProps {
   groupJoin:boolean
   setGroupJoin:Function
+  setAuthPopup:Function
+  isAuthorized:boolean
 }
 
-const GroupBanner: FC<GroupBannerProps> = ({groupJoin,setGroupJoin}) => {
+const GroupBanner: FC<GroupBannerProps> = ({groupJoin,setGroupJoin,isAuthorized,setAuthPopup}) => {
   return (
     <section className="w-full relative h-max">
       <Image
@@ -19,7 +21,7 @@ const GroupBanner: FC<GroupBannerProps> = ({groupJoin,setGroupJoin}) => {
       <div className="absolute w-full bg-[rgba(0,0,0,0.5)] inset-0 flex flex-col justify-between lg:justify-end items-center">
         <div className="flex mt-2 lg:hidden justify-between items-center w-[96%]">
             <BiArrowBack className="h-8 w-8 text-white"/>
-            <button onClick={()=>setGroupJoin((prev:boolean)=>(!prev))} className="text-lg text-white font-semibold p-2 rounded-md border-white border-2">{groupJoin?"Joined":"Join Group"}</button>
+            <button onClick={()=>{isAuthorized?setGroupJoin((prev:boolean)=>(!prev)):setAuthPopup(true)}} className="text-lg text-white font-semibold p-2 rounded-md border-white border-2">{groupJoin?"Joined":"Join Group"}</button>
         </div>
         <div className="flex flex-col text-white mb-4 lg:mb-8 w-[96%] max-w-7xl justify-start items-start">
             <p className="text-xl font-bold lg:text-3xl">Computer Engineering</p>
